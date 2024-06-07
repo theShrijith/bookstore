@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Our Bookstore</title>
+    <style>
+        /* CSS for Modal Popup */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            animation-name: modalopen;
+            animation-duration: 0.4s;
+        }
+        @keyframes modalopen {
+            from {opacity: 0}
+            to {opacity: 1}
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Contact Us - Our Bookstore</h1>
+    <button onclick="openModal()">Open Contact Form</button>
+</header>
+
+<!-- Modal Popup -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Contact Us</h2>
+        <form id="contactForm" action="#" method="post">
+            <label for="name">Your Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="email">Your Email:</label><br>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="message">Your Message:</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br>
+
+            <input type="submit" value="Send Message">
+        </form>
+    </div>
+</div>
+
+<script>
+    // JavaScript functions to show and hide modal
+    function openModal() {
+        document.getElementById('myModal').style.display = "block";
+    }
+    function closeModal() {
+        document.getElementById('myModal').style.display = "none";
+    }
+
+    // JavaScript function to handle form submission
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent page from reloading
+        // Add AJAX code here to submit form data without leaving the page
+        // For example, you can use Fetch API or XMLHttpRequest
+        // After form submission, you can close the modal or display a success message
+        closeModal(); // Close modal after form submission (example)
+        alert('Form submitted successfully!'); // Example success message
+    });
+</script>
+
+</body>
+</html>
